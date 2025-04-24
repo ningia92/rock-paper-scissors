@@ -13,3 +13,6 @@ const getComputerChoice = () => {
 const getHumanChoice = () => {
   return prompt('Choose one between rock, paper and scissors:')
 }
+
+let humanScore = 0
+let computerScore = 0 
