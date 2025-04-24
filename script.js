@@ -16,3 +16,27 @@ const getHumanChoice = () => {
 
 let humanScore = 0
 let computerScore = 0 
+
+const playRound = (humanChoice, computerChoice) => {
+  const caseInsHumanChoice = humanChoice.toLowerCase()
+  const whatBeatsWhat = {
+    'rock': 'scissors',
+    'paper': 'rock',
+    'scissors': 'paper'
+  }
+  
+  if (whatBeatsWhat[caseInsHumanChoice] === computerChoice) {
+    console.log(`You win! ${caseInsHumanChoice} beats ${computerChoice}`)
+    humanScore++
+  } else if (whatBeatsWhat[computerChoice] === caseInsHumanChoice) {
+    console.log(`You lose! ${computerChoice} beats ${caseInsHumanChoice}`)
+    computerScore++
+  } else {
+    console.log('Draw!')
+  }
+}
+
+const humanSelection = getHumanChoice()
+const computerSelection = getComputerChoice()
+
+playRound(humanSelection, computerSelection)
