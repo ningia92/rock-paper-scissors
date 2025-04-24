@@ -13,6 +13,12 @@ A simple “Rock Paper Scissors” console game developed in JavaScript as part 
 - **Problem Solving Workflow**
   - Planned each feature in pseudocode, implemented step-by-step, tested with `console.log()`, and debugged continuously.
 
+## How to Play
+
+1. Open https://ningia92.github.io/rock-paper-scissors/ in your browser.
+2. When prompted, enter **rock**, **paper**, or **scissors**.
+3. Check the **Console** for round outcomes and final scores after five rounds.
+
 ## Demo
 
 Live on GitHub Pages: https://ningia92.github.io/rock-paper-scissors/
