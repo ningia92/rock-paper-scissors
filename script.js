@@ -1,6 +1,6 @@
 const getComputerChoice = () => {
   const choice = Math.floor(Math.random() * 3) + 1
-  
+
   if (choice === 1) {
     return 'rock'
   } else if (choice === 2) {
@@ -14,29 +14,39 @@ const getHumanChoice = () => {
   return prompt('Choose one between rock, paper and scissors:')
 }
 
-let humanScore = 0
-let computerScore = 0 
+const playGame = () => {
+  let humanScore = 0
+  let computerScore = 0
+  let round = 1
 
-const playRound = (humanChoice, computerChoice) => {
-  const caseInsHumanChoice = humanChoice.toLowerCase()
-  const whatBeatsWhat = {
-    'rock': 'scissors',
-    'paper': 'rock',
-    'scissors': 'paper'
+  const playRound = (humanChoice, computerChoice) => {
+    const caseInsHumanChoice = humanChoice.toLowerCase()
+    const whatBeatsWhat = {
+      'rock': 'scissors',
+      'paper': 'rock',
+      'scissors': 'paper'
+    }
+
+    if (whatBeatsWhat[caseInsHumanChoice] === computerChoice) {
+      console.log(`You win! ${caseInsHumanChoice} beats ${computerChoice}`)
+      humanScore++
+    } else if (whatBeatsWhat[computerChoice] === caseInsHumanChoice) {
+      console.log(`You lose! ${computerChoice} beats ${caseInsHumanChoice}`)
+      computerScore++
+    } else {
+      console.log('Draw!')
+    }
   }
-  
-  if (whatBeatsWhat[caseInsHumanChoice] === computerChoice) {
-    console.log(`You win! ${caseInsHumanChoice} beats ${computerChoice}`)
-    humanScore++
-  } else if (whatBeatsWhat[computerChoice] === caseInsHumanChoice) {
-    console.log(`You lose! ${computerChoice} beats ${caseInsHumanChoice}`)
-    computerScore++
-  } else {
-    console.log('Draw!')
+
+  while (round < 6) {
+    playRound(getHumanChoice(), getComputerChoice())
+    round++
   }
+
+  console.log(`Results: \n - human score: ${humanScore} \n - computer score: ${computerScore}`)
+  humanScore > computerScore
+  ? console.log('You win the game!')
+  : console.log('You lose the game!')
 }
 
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
-
-playRound(humanSelection, computerSelection)
+playGame()
