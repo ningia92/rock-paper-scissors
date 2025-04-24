@@ -15,4 +15,4 @@ A simple “Rock Paper Scissors” console game developed in JavaScript as part 
 
 ## Demo
 
-Live on GitHub Pages: `https://ningia92.github.io/rock-paper-scissors/`
+Live on GitHub Pages: https://ningia92.github.io/rock-paper-scissors/
