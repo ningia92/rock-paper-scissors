@@ -21,15 +21,16 @@ const playGame = () => {
       'paper': 'rock',
       'scissors': 'paper'
     }
+    const result = document.querySelector('.result')
 
     if (whatBeatsWhat[caseInsHumanChoice] === computerChoice) {
-      console.log(`You win! ${caseInsHumanChoice} beats ${computerChoice}`)
+      result.textContent = `You win! ${caseInsHumanChoice} beats ${computerChoice}`
       humanScore++
     } else if (whatBeatsWhat[computerChoice] === caseInsHumanChoice) {
-      console.log(`You lose! ${computerChoice} beats ${caseInsHumanChoice}`)
+      result.textContent = `You lose! ${computerChoice} beats ${caseInsHumanChoice}`
       computerScore++
     } else {
-      console.log('Draw!')
+      result.textContent = 'Draw!'
     }
   }
 
@@ -38,10 +39,10 @@ const playGame = () => {
     button.addEventListener('click', () => playRound(button.textContent, getComputerChoice()))
   })
 
-  console.log(`Results: \n - human score: ${humanScore} \n - computer score: ${computerScore}`)
-  humanScore > computerScore
-  ? console.log('You win the game!')
-  : console.log('You lose the game!')
+  // console.log(`Results: \n - human score: ${humanScore} \n - computer score: ${computerScore}`)
+  // humanScore > computerScore
+  // ? console.log('You win the game!')
+  // : console.log('You lose the game!')
 }
 
 playGame()
