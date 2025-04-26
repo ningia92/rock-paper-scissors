@@ -17,7 +17,6 @@ const getHumanChoice = () => {
 const playGame = () => {
   let humanScore = 0
   let computerScore = 0
-  let round = 1
 
   const playRound = (humanChoice, computerChoice) => {
     const caseInsHumanChoice = humanChoice.toLowerCase()
@@ -38,10 +37,7 @@ const playGame = () => {
     }
   }
 
-  while (round < 6) {
-    playRound(getHumanChoice(), getComputerChoice())
-    round++
-  }
+  playRound(getHumanChoice(), getComputerChoice())
 
   console.log(`Results: \n - human score: ${humanScore} \n - computer score: ${computerScore}`)
   humanScore > computerScore
