@@ -10,10 +10,6 @@ const getComputerChoice = () => {
   }
 }
 
-const getHumanChoice = () => {
-  return prompt('Choose one between rock, paper and scissors:')
-}
-
 const playGame = () => {
   let humanScore = 0
   let computerScore = 0
@@ -37,7 +33,10 @@ const playGame = () => {
     }
   }
 
-  playRound(getHumanChoice(), getComputerChoice())
+  const buttons = document.querySelectorAll('button')
+  buttons.forEach(button => {
+    button.addEventListener('click', () => playRound(button.textContent, getComputerChoice()))
+  })
 
   console.log(`Results: \n - human score: ${humanScore} \n - computer score: ${computerScore}`)
   humanScore > computerScore
