@@ -7,14 +7,22 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    <h1>"Rock, Paper, Scissors" Game</h1>
+    <h2>"Rock, Paper, Scissors" Game</h2>
+    <h3>The player who reaches 5 points wins</h3>
     <p>Choose:</p>
     <button>Rock</button>
     <button>Paper</button>
     <button>Scissors</button>
     <div>
-        <p>Round result:</p>
-        <div class="result"></div>
+        <p>Round result: <span class="result"></span></p>
+        <div class="runningScore">
+            <p>Running score:</p>
+            <ul>
+                <li>Human score: <span class="humanScore">0</span></li>
+                <li>Computer score: <span class="computerScore">0</span></li>
+            </ul>
+        </div>
+        <b class="finalResult"></b>
     </div>
 </body>
 </html>

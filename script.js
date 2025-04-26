@@ -13,6 +13,10 @@ const getComputerChoice = () => {
 const playGame = () => {
   let humanScore = 0
   let computerScore = 0
+  const result = document.querySelector('.result')
+  const human = document.querySelector('.humanScore')
+  const computer = document.querySelector('.computerScore')
+  const finalResult = document.querySelector('.finalResult')
 
   const playRound = (humanChoice, computerChoice) => {
     const caseInsHumanChoice = humanChoice.toLowerCase()
@@ -21,28 +25,40 @@ const playGame = () => {
       'paper': 'rock',
       'scissors': 'paper'
     }
-    const result = document.querySelector('.result')
+    finalResult.textContent = ''
 
     if (whatBeatsWhat[caseInsHumanChoice] === computerChoice) {
       result.textContent = `You win! ${caseInsHumanChoice} beats ${computerChoice}`
       humanScore++
+      human.textContent = humanScore
     } else if (whatBeatsWhat[computerChoice] === caseInsHumanChoice) {
       result.textContent = `You lose! ${computerChoice} beats ${caseInsHumanChoice}`
       computerScore++
+      computer.textContent = computerScore
     } else {
       result.textContent = 'Draw!'
+    }
+
+    if (humanScore === 5 || computerScore === 5) {
+      humanScore > computerScore
+        ? finalResult.textContent = 'You win the game!'
+        : finalResult.textContent = 'You lose the game!'
+
+      humanScore = 0
+      computerScore = 0
     }
   }
 
   const buttons = document.querySelectorAll('button')
   buttons.forEach(button => {
-    button.addEventListener('click', () => playRound(button.textContent, getComputerChoice()))
+    button.addEventListener('click', () => {
+      if (finalResult.textContent !== '') {
+        human.textContent = ''
+        computer.textContent = ''
+      }
+      playRound(button.textContent, getComputerChoice())
   })
-
-  // console.log(`Results: \n - human score: ${humanScore} \n - computer score: ${computerScore}`)
-  // humanScore > computerScore
-  // ? console.log('You win the game!')
-  // : console.log('You lose the game!')
+  })
 }
 
 playGame()
